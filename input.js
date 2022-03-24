@@ -1,22 +1,44 @@
-const { monitorEventLoopDelay } = require("perf_hooks");
+//setup interface to handle user input from stdin
+let connection;
 
-// In the handleUserInput function, you'll specify what happens when a particular key is pressed on the keyboard input.
-const handleUserInput = function (input) {
-  // your code here 
-    if (input === '\u0003') {
-     process.exit();   
-    }
-  
-};
-// setup interface to handle user input from stdin
-const setupInput = function () {
+const setupInput = function(conn){
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  stdin.on("data", handleUserInput);
-
+  // stdin.on("data", handleUserInput);
+  connection = conn;
+  // console.log(`This is conn --- ${conn}`);
   return stdin;
-};
+ };
 
-module.exports = setupInput;
+ const handleUserInput = process.stdin.on("data", (input) => {
+  console.log(input);
+  if (input === "w" || input === "W"){
+    connection.write("Move: up");
+  } 
+  if(input === "a" || input === "A"){
+    connection.write("Move: left");
+  } 
+  if(input === "s" || input === "S"){
+    connection.write("Move: down");
+  } 
+  if(input === "d" || input === "D"){
+    connection.write("Move: right");
+  } 
+  if (input === "\u0003") {
+    //this if for control + c to exit out of the game
+     console.log("Exiting the game ...");
+     process.exit();   
+   } else {
+    //  console.log("good jobsss");
+    console.log("");
+   }
+ });
+
+
+
+ module.exports = {
+   setupInput,
+   connection
+ };
