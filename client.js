@@ -13,7 +13,8 @@ const connect = function (){
   //The "connect" event is triggered on a connection as soon as it is successfully established.
   conn.on("connect", ()=> {
     console.log("Successfully connected to game server!");
-    conn.write("Name: MM6")
+    conn.write("Name: MM6");
+    // conn.write("Move: up"); // move up one square (unless facing down)
   });
 
   //Update the connect function to handle incoming data and console.log it for the player.
