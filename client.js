@@ -5,12 +5,16 @@ const connect = function (){
   const conn = net.createConnection({
     host: localhost, // IP address here,
     port: 8765 // PORT number here,
-  }, () => { 
-    console.log("connected to server!");
   });
 
   //interpret incoming data as text
   conn.setEncoding("utf8");
+
+  //The "connect" event is triggered on a connection as soon as it is successfully established.
+  conn.on("connect", ()=> {
+    console.log("Successfully connected to game server!");
+    conn.write("Name: MM6")
+  });
 
   //Update the connect function to handle incoming data and console.log it for the player.
   conn.on("data", (data) =>{
