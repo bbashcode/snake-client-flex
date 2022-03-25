@@ -14,6 +14,7 @@ const connect = function (){
   conn.on("connect", ()=> {
     console.log("Successfully connected to game server!");
     conn.write("Name: MM6");
+    conn.write("Say: Heyo folks!");
     // conn.write("Move: up"); // move up one square (unless facing down)
   });
 
