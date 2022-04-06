@@ -1,44 +1,27 @@
-//setup interface to handle user input from stdin
+const {moveCommands} = require("./constants");
 let connection;
 
 const setupInput = function(conn){
   const stdin = process.stdin;
+  connection = conn;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  // stdin.on("data", handleUserInput);
-  connection = conn;
-  // console.log(`This is conn --- ${conn}`);
+  stdin.on("data", (input) => handleUserInput(input));
   return stdin;
  };
 
- const handleUserInput = process.stdin.on("data", (input) => {
-  console.log(input);
-  if (input === "w" || input === "W"){
-    connection.write("Move: up");
-  } 
-  if(input === "a" || input === "A"){
-    connection.write("Move: left");
-  } 
-  if(input === "s" || input === "S"){
-    connection.write("Move: down");
-  } 
-  if(input === "d" || input === "D"){
-    connection.write("Move: right");
-  } 
+ const handleUserInput = function (input) {
   if (input === "\u0003") {
-    //this if for control + c to exit out of the game
      console.log("Exiting the game ...");
      process.exit();   
-   } else {
-    //  console.log("good jobsss");
-    console.log("");
-   }
- });
+  }
 
-
-
- module.exports = {
-   setupInput,
-   connection
+  if(input in moveCommands) {
+    connection.write(moveCommands[input]);
+  }
  };
+
+
+
+module.exports = {setupInput};
