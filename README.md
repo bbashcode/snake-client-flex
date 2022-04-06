@@ -5,11 +5,11 @@ Snake game is a very popular video game. It is a video game concept where the pl
 This is simply a multiplayer take on the genre.
 
 Before you can run this client, you will need to be running the server side which you can download and install from here. 
+## Goal
+The goal for this project is learning how networking works in Node JS as part of the core coursework at LHL.
 
 ## Final Product
-
-!["screenshot"](#)
-!["screenshot"](#)
+The final product is a snake game on the console that users can control the movement using w, a, s, d keys
 
 
 ## Getting Started
