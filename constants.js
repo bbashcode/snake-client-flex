@@ -1,5 +1,5 @@
 const IP = "localhost";
-const PORT = 52765;
+const PORT = 50541;
 const moveCommands = {
   w: "Move: up",
   a: "Move: left",
