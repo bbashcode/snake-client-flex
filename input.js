@@ -1,7 +1,7 @@
 const {moveCommands} = require("./constants");
 let connection;
 
-const setupInput = function(conn){
+const setupInput = function(conn) {
   const stdin = process.stdin;
   connection = conn;
   stdin.setRawMode(true);
@@ -9,18 +9,18 @@ const setupInput = function(conn){
   stdin.resume();
   stdin.on("data", (input) => handleUserInput(input));
   return stdin;
- };
+};
 
- const handleUserInput = function (input) {
+const handleUserInput = function(input) {
   if (input === "\u0003") {
-     console.log("Exiting the game ...");
-     process.exit();   
+    console.log("Exiting the game ...");
+    process.exit();
   }
 
-  if(input in moveCommands) {
+  if (input in moveCommands) {
     connection.write(moveCommands[input]);
   }
- };
+};
 
 
 

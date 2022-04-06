@@ -7,7 +7,7 @@ const moveCommands = {
   d: "Move: right",
   q: "Say: ssssssssssssss",
   t: "Say: later!"
-}
+};
 
 module.exports = {
   IP,
