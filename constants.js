@@ -1,5 +1,5 @@
-const IP = "198.54.132.117";
-const PORT = 8765;
+const IP = "localhost";
+const PORT = 52765;
 
 module.exports = {
   IP,
