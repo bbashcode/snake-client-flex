@@ -1,4 +1,4 @@
-const IP = "192.168.1.67";
+const IP = "localhost";
 const PORT = 50541;
 const moveCommands = {
   w: "Move: up",
