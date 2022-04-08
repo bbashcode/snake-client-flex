@@ -14,5 +14,5 @@ The final product is a snake game on the console that users can control the move
 
 ## Getting Started
 
-- Follow steps inside the snek server repo to run the server side
+- Follow steps inside the [snek-multiplayer](https://github.com/lighthouse-labs/snek-multiplayer) repo to run the server side
 - Run the development snake client using the `node play.js` command.
