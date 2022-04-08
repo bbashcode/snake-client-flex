@@ -24,4 +24,4 @@ const handleUserInput = function(input) {
 
 
 
-module.exports = {setupInput};
+module.exports = setupInput;
